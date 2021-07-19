@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellary</title>
+
+<style>
+.jew{
+    display:grid;
+    padding:7%;
+    grid-template-columns:repeat(3,30%);
+    gap:5%;
+}
+.i{
+ width:100%;
+ border:1px solid black;   
+}
+</style>
+</head>
+<body>
+
+        <form id="form" onsubmit="location()">
+            <button onclick="alert1()">My cart</button>
+        </br>
+            <lable>Name of the buyer</lable>
+            <input type="text" id="name">
+            <lable>Total Number of elements</lable>
+            <input type="number" id="cost">
+            <input  type="submit" >
+            </form>
+            
+            <div id="jew"></div>
+
+</body>
+</html>
+            <script>
+                function alert1()
+                 {
+                      alert("Items are succesfully added");
+                    }
+                function location() {
+                    
+                    let form = document.getElementById("form");
+                    let name = form.name.value;
+                    let link = form.link.value;
+                    let price = form.cost.value;
+                    let mylocation = {
+                        name,
+                        link,
+                        cost
+                    }
+                    let arr;
+                    arr = localStorage.getItem("locations");
+                    if (arr == null)
+                        arr = [];
+                    else {
+                        arr = JSON.parse(localStorage.get.items("locations"));
+
+                    }
+                    arr.push(location);
+                    localStorage.setItem("locations", JSON.stringify(arr));
+                 pushproduct();
+
+                }
+                function pushproduct(items) {
+                    var product = document.getElementById("products");
+                    var div = document.createElement("div");
+                    var p = document.createElement("p");
+                    p.innerHTML = items.name;
+                    var img = document.createElement("img");
+                    img.src = items.link;
+                    var cost = document.createElement("p");
+                    cost.innerHTML = items.cost;
+                    var buton = document.createElement("button");
+                    buton.innerHTML = "Add To Cart";
+                    f1("click", function () {
+                        Visited(items);
+                    });
+                    div.append(img, p, cost, buton);
+                    products.append(div);
+
+                }
+
+
+
+            </script>
